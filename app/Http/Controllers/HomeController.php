@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Task;
+use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -17,8 +20,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+     public function __construct(TaskRepository $tasks)
+     {
+       $this->tasks = $tasks;
+     }
+
+    public function index(Request $request)
     {
-        return view('home');
+        //$tasks = Task::where('id', $request->user()->id)->get();
+
+        return view('users.home', [
+            'tasks' => $this->tasks->forUser($request->user()),
+        ]);
     }
 }

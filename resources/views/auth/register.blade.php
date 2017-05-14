@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Register')
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -10,15 +12,29 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                        <div class="form-group{{ $errors->has('Fname') ? ' has-error' : '' }}">
+                            <label for="Fname" class="col-md-4 control-label">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="Fname" type="text" class="form-control" name="Finame" value="{{ old('Fname') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('Fname'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('Fname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('Lname') ? ' has-error' : '' }}">
+                            <label for="Lname" class="col-md-4 control-label">Last Name</label>
+
+                            <div class="col-md-6">
+                                <input id="Lname" type="text" class="form-control" name="Lname" value="{{ old('Lname') }}" required autofocus>
+
+                                @if ($errors->has('Lname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('Lname') }}</strong>
                                     </span>
                                 @endif
                             </div>
