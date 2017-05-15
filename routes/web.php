@@ -16,9 +16,9 @@ Route::group(['middleware' => ['guest']], function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
-  Route::get('/home', 'HomeController@index')->name('home');
+  Route::get('/home', 'HomeController@getHome')->name('home');
   Route::post('/home/tasks', 'UserActionController@postNewTask')->name('newTask');
-  Route::post('/home/tasks/{task}', 'UserActionController@destroy');
+  Route::delete('/home/tasks/{task}', 'UserActionController@destroy')->name('destroyTask');
 });
 
 Auth::routes();

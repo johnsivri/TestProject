@@ -17,7 +17,9 @@ class UserActionController extends Controller
       ]);
 
       $request->user()->tasks()->create([
-        'TaskName'  => $request->TaskName;
+        'task_name'   => $request->TaskName,
+        'task_desc'   => $request->TaskDesc,
+        'due_date'    => $request->DueDate,
       ]);
 
       return redirect('/home');
