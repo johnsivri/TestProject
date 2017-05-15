@@ -16,7 +16,7 @@
                             <label for="Fname" class="col-md-4 control-label">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="Fname" type="text" class="form-control" name="Finame" value="{{ old('Fname') }}" required autofocus>
+                                <input id="Fname" type="text" class="form-control" name="Fname" value="{{ old('Fname') }}" required autofocus>
 
                                 @if ($errors->has('Fname'))
                                     <span class="help-block">
@@ -30,7 +30,7 @@
                             <label for="Lname" class="col-md-4 control-label">Last Name</label>
 
                             <div class="col-md-6">
-                                <input id="Lname" type="text" class="form-control" name="Lname" value="{{ old('Lname') }}" required autofocus>
+                                <input id="Lname" type="text" class="form-control" name="Lname" value="{{ old('Lname') }}" required>
 
                                 @if ($errors->has('Lname'))
                                     <span class="help-block">
@@ -49,6 +49,20 @@
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                            <label for="username" class="col-md-4 control-label">Userame</label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required>
+
+                                @if ($errors->has('username'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
                             </div>
